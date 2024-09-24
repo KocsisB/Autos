@@ -105,7 +105,7 @@ namespace auto
         public static void deleteCar()
         {
             conn.connection.Open();
-            int id, date;
+            int id;
 
             Console.WriteLine("Kérem az autó id-ját: ");
             id = int.Parse(Console.ReadLine());
@@ -117,6 +117,23 @@ namespace auto
 
             conn.connection.Close();
         }
+        public static void carByID()
+        {
+            conn.connection.Open();
+            int id;
+
+            Console.WriteLine("Kérem az autó id-ját: ");
+            id = int.Parse(Console.ReadLine());
+
+            string sql = $"SELECT * FROM `cars` WHERE `Id` = {id}";
+            MySqlCommand cmd = new MySqlCommand(sql, conn.connection);
+            MySqlDataReader dr = cmd.ExecuteReader();
+            dr.Read();
+            Console.WriteLine($"\nMárka: {dr.GetString(1)}\nTípus: {dr.GetString(2)}\nMotorszám: {dr.GetString(3)}\nGyártási év: {dr.GetInt32(4)}");
+
+            conn.connection.Close();
+        }
+
         static void Main(string[] args)
         {
             feltolt();
