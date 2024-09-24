@@ -1,0 +1,7 @@
+C:\Users\Tanulo\Git\auto\bin\Debug\auto.exe.config
+C:\Users\Tanulo\Git\auto\bin\Debug\auto.exe
+C:\Users\Tanulo\Git\auto\bin\Debug\auto.pdb
+C:\Users\Tanulo\Git\auto\obj\Debug\auto.csproj.AssemblyReference.cache
+C:\Users\Tanulo\Git\auto\obj\Debug\auto.csproj.CoreCompileInputs.cache
+C:\Users\Tanulo\Git\auto\obj\Debug\auto.exe
+C:\Users\Tanulo\Git\auto\obj\Debug\auto.pdb
