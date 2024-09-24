@@ -28,6 +28,7 @@ namespace auto
             connection = new MySqlConnection(ConnectionString);
         }
     }
+
     internal class Program
     {
         static void Main(string[] args)
