@@ -60,6 +60,63 @@ namespace auto
 
             conn.connection.Close();
         }
+
+        public static void addNewCar()
+        {
+            conn.connection.Open();
+            string brand, type, license;
+            int date;
+
+            Console.WriteLine("Kérem az autó márkáját: ");
+            brand = Console.ReadLine();
+            Console.WriteLine("Kérem a márka modellét: ");
+            type = Console.ReadLine();
+            Console.WriteLine("Kérem az autó motorszámát: ");
+            license = Console.ReadLine();
+            Console.WriteLine("Kérem Az autó évjáratát: ");
+            date = int.Parse(Console.ReadLine());
+
+            string sql = $"INSERT INTO `cars`(`Brand`, `Type`, `License`, `Date`) VALUES ('{brand}','{type}','{license}',{date})";
+            MySqlCommand cmd = new MySqlCommand(sql,conn.connection);
+            cmd.ExecuteNonQuery();
+
+            conn.connection.Close();
+        }
+
+        public static void modifyData()
+        {
+            conn.connection.Open();
+            string brand, type, license;
+            int id, date;
+
+            Console.WriteLine("Kérem az autó id-ját: ");
+            id = int.Parse(Console.ReadLine());
+            Console.WriteLine("Kérem az évszámot: ");
+            date = int.Parse(Console.ReadLine());
+
+            string sql = $"UPDATE `cars` SET `Date`={date} WHERE Id={id}";
+
+            MySqlCommand cmd = new MySqlCommand(sql, conn.connection);
+            cmd.ExecuteNonQuery();
+
+            conn.connection.Close();
+        }
+
+        public static void deleteCar()
+        {
+            conn.connection.Open();
+            int id, date;
+
+            Console.WriteLine("Kérem az autó id-ját: ");
+            id = int.Parse(Console.ReadLine());
+
+            string sql = $"DELETE FROM `cars` WHERE Id={id}";
+
+            MySqlCommand cmd = new MySqlCommand(sql, conn.connection);
+            cmd.ExecuteNonQuery();
+
+            conn.connection.Close();
+        }
         static void Main(string[] args)
         {
             feltolt();
@@ -68,7 +125,9 @@ namespace auto
                 Console.WriteLine($"Autó gyártója: {item.Brand} motor száma {item.License}.");
             }
             Console.WriteLine(cars.Count);
-
+            addNewCar();
+            modifyData();
+            deleteCar();
             Console.ReadLine();
         }
     }
