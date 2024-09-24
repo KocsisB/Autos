@@ -95,7 +95,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="model\car.cs" />
+    <Compile Include="model\Car.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
